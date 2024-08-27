@@ -1,0 +1,23 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  # Linter
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.4.7
+    hooks:
+      - id: ruff
+        # name: ruff
+        # entry: ruff ./src
+        # language: system
+
+  # using pylance in vs code
+  # Type checker
+  # - repo: https://github.com/RobertCraigie/pyright-python
+  #   rev: v1.1.315
+  #   hooks:
+  #     - id: pyright
