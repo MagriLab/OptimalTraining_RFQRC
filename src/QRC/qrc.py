@@ -1,7 +1,8 @@
 
 import numpy as np
 from qiskit import  QuantumCircuit, QuantumRegister, ClassicalRegister
-from qiskit_aer import Aer
+from qiskit_aer import AerSimulator , StatevectorSimulator , QasmSimulator
+# from qiskit_aer import Aer
 from scipy.signal import savgol_filter
 from QRC.unitaryblock import Unitary4 , Unitary_FullyEnt , Unitary_FullyEntSym , Unitary_Feature
 from qiskit.circuit import ParameterVector
@@ -311,9 +312,9 @@ class QuantumReservoirNetwork:
 
         if self.emulator   == "sv_sim":
 
-            simulator = Aer.get_backend('aer_simulator_statevector')
+            simulator = StatevectorSimulator(precision='double')
             #simulator.set_options(device='GPU')
-            self.qc.save_statevector()
+            # self.qc.save_statevector()
             #qc = transpile(qc, simulator)
             result      = simulator.run(self.qc).result()
             statevector = result.get_statevector(self.qc)
@@ -322,7 +323,7 @@ class QuantumReservoirNetwork:
         elif self.emulator == "qasm_sim":
 
             self.qc.measure_all(add_bits=False)
-            simulator = Aer.get_backend('qasm_simulator')
+            simulator = QasmSimulator(precision='double')
             simulator = simulator.run(self.qc,shots=self.shots)
             result    = simulator.result()
             counts    = result.get_counts(self.qc)
