@@ -107,14 +107,15 @@ python-json-logger==2.0.7
 pytz==2023.2
 PyYAML==6.0
 pyzmq==25.0.2
-qiskit==1.0.0rc1
+qiskit==2.0.0
+qiskit-aer==0.17.0
 requests==2.32.3
 requests-ntlm==1.1.0
 retworkx==0.14.0
 rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
 ruff==0.4.7
-rustworkx==0.14.0
+rustworkx==0.16.0
 scikit-learn==1.2.2
 scikit-optimize==0.9.0
 scipy==1.10.1
