@@ -2,7 +2,31 @@ import matplotlib.pyplot as plt
 import matplotlib.pylab as pl
 import matplotlib as mpl
 import numpy as np
+import warnings
 
+# plt.rcParams["figure.figsize"] = (10,5)
+def calculate_snr(clean_signal, noisy_signal):
+    # Compute signal component (difference between clean and noisy signals)
+    noise = noisy_signal - clean_signal
+    
+    # Compute noise component (standard deviation of noisy signal)
+    noise = np.mean(noisy_signal)
+    
+    # Calculate SNR
+    snr = np.mean(clean_signal) / noise
+    
+    return snr
+
+def signaltonoise(a, b, axis=0, ddof=0):
+    a = np.asanyarray(a)
+    m = a.mean(axis)
+    c = np.abs(b-a)
+    if c.all() == 0:
+        warnings.warn("Non-noisy signal, the SNR is inf ")
+    
+    sd = c.std(axis=axis, ddof=ddof)
+    
+    return np.where(sd == 0, 0, m/sd)
 
 def add_noise(U,target_snr_db,seed,dim,N0,N1):
     """_summary_
