@@ -15,18 +15,15 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 
+```
+Then run the following notebook
+```bash
 
-Run the main notebook:
+python Notebook.ipynb
+```
 
-python src/Notebook.ipynb
 
+## Citation
+If you use this code in your research, please cite the corresponding paper:
 
-This will train and evaluate RF-QRC with optional denoising on chaotic datasets.
-
-Citation
-
-If you use this repository, please cite:
-
-O. Ahmed, F. Tennie, L. Magri. Optimal training of finitely-sampled quantum reservoir computers for forecasting of chaotic dynamics. Quantum Machine Intelligence (2025).
-
-License
+Robust quantum reservoir computers for forecasting chaotic dynamics: generalized synchronization and stability (https://arxiv.org/abs/2506.22335)
